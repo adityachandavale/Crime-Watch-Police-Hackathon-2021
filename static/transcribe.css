@@ -1,0 +1,23 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 100vh;
+}
+
+.button-group-transcribe {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    max-height: 5em;
+    cursor: pointer;
+    border-radius: 10px;
+    border: 2px solid var(--primary-color);
+    font-size: 15px;
+    outline: none;
+}
