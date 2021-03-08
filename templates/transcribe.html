@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Record and save audio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css"/>
+    <link rel="stylesheet" href="/static/transcribe.css">
+    <link rel="stylesheet" href="/static/style.css">
+  </head>
+  <body>
+    <div class = "button-group-transcribe">
+        <button id="record">Record</button>
+        <button id="stop" disabled>Stop</button>
+        <button id="play" disabled>Play</button>
+        <button id="save" disabled>Save</button>
+    </div>
+
+    <div id="saved-audio-messages">
+      <h2>Saved messages</h2>
+    </div>
+
+    <script src="/static/transcribe.js">
+    </script>
+  </body>
+</html>
