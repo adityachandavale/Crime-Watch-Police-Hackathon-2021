@@ -86,14 +86,20 @@ a:focus {
   margin-top: 3em;
 }
 
-button {
-  width: 20em;
+.button-homescreen {
+  min-width: 20em;
   height: 10em;
   cursor: pointer;
   border-radius: 20px;
   border: 2px solid var(--primary-color);
-  font-size: 15px;
   outline: none;
+}
+
+.button-text {
+  font-size: 30px;
+  padding: 0 0;
+  font-family: Oswald, sans-serif;
+  letter-spacing: 3px;
 }
 
 button:disabled {
@@ -134,10 +140,11 @@ button:hover:not(.outline) {
 .text-box {
   width: 40%;
   text-align: justify;
-  background: rgb(0 0 0 / 50%);
+  background: rgb(255 255 255 / 50%);
   color: var(--on-primary);
   border-radius: 10px;
   padding: 30px;
+  margin-top: 2em;
 }
 
 p {
@@ -161,4 +168,13 @@ p {
 .fas {
   font-size: 30px;
   margin-right: 5px;
+}
+
+.contact-list {
+  text-align: justify;
+  background: rgb(255 255 255 / 50%);
+  color: var(--on-primary);
+  border-radius: 10px;
+  padding: 30px;
+  margin-top: 2em;
 }

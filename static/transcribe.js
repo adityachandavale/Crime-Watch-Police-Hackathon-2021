@@ -1,3 +1,11 @@
+const backButton = document.getElementById("back-button");
+
+backButton.addEventListener('click', goToHomeScreen)
+
+function goToHomeScreen(event) {
+  window.location.href = '/';
+}
+
 const recordAudio = () =>
   new Promise(async resolve => {
     const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
