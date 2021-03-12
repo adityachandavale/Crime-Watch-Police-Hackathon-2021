@@ -7,18 +7,24 @@
     <link rel="stylesheet" href="/static/style.css">
   </head>
   <body>
-    <div class = "button-group-transcribe">
-        <button id="record">Record</button>
-        <button id="stop" disabled>Stop</button>
-        <button id="play" disabled>Play</button>
-        <button id="save" disabled>Save</button>
+    <div class="back-button">
+      <i id="back-button" class="far fa-arrow-alt-circle-left" title="Go back to home screen"></i>
     </div>
 
-    <div id="saved-audio-messages">
-      <h2>Saved messages</h2>
-    </div>
+    <div class="page-content">
+      <div class = "button-group-transcribe">
+          <button id="record">Record</button>
+          <button id="stop" disabled>Stop</button>
+          <button id="play" disabled>Play</button>
+          <button id="save" disabled>Save</button>
+      </div>
 
-    <script src="/static/transcribe.js">
-    </script>
+      <div id="saved-audio-messages">
+        <h2>Saved messages</h2>
+      </div>
+
+      <script src="/static/transcribe.js">
+      </script>
+    </div>
   </body>
 </html>
