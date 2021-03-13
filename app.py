@@ -52,5 +52,10 @@ def getCurrentCount():
         countFile.truncate()
     return count
 
+import os
+@app.route('/convert_to_text')
+def convert_to_text():
+    os.system('transcribe.py')
+
 if __name__ == '__main__':
     app.run(debug=True)
