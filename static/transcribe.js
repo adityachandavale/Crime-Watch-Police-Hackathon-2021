@@ -72,42 +72,20 @@ playButton.addEventListener('click', () => {
 });
 
 saveButton.addEventListener('click', () => {
+  const audioBlob = new Blob(audio.audioChunks, { 'type' : 'audio/webm'});
   const reader = new FileReader();
-  reader.readAsDataURL(audio.audioBlob);
+  reader.readAsDataURL(audioBlob);
   reader.onload = () => {
     const base64AudioMessage = reader.result.split(',')[1];
-    fetch('/messages', {
+    console.log(reader.result)
+    fetch("/saveMessage", {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ message: base64AudioMessage })
-    }).then(res => {
-      if (res.status === 201) {
-        return populateAudioMessages();
+    }).then(res => 
+      {
+        console.log(res)
       }
-      console.log('Invalid status saving audio message: ' + res.status);
-    });
-  };
+    );
+  }
 });
-
-const populateAudioMessages = () => {
-  return fetch('/messages').then(res => {
-    if (res.status === 200) {
-      return res.json().then(json => {
-        json.messageFilenames.forEach(filename => {
-          let audioElement = document.querySelector(`[data-audio-filename="${filename}"]`);
-          if (!audioElement) {
-            audioElement = document.createElement('audio');
-            audioElement.src = `/messages/${filename}`;
-            audioElement.setAttribute('data-audio-filename', filename);
-            audioElement.setAttribute('controls', true);
-            savedAudioMessagesContainer.appendChild(audioElement);
-            console.log("ABLE TO SAVE");
-          }
-        });
-      });
-    }
-    console.log('Invalid status getting messages: ' + res.status);
-  });
-};
-
-populateAudioMessages();
