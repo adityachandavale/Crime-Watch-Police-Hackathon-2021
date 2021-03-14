@@ -46,7 +46,7 @@ def add_header(response):
 
 @app.route('/convert_to_text')
 def convert_to_text():
-    os.system('transcribe.py')
+    os.system('python transcribe.py')
     return 'Success'
 
 def getCurrentCount():
