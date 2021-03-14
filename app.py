@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, jsonify
 import base64
+import os
 
 ENCODING_FORMAT = 'utf-8'
 
@@ -43,6 +44,11 @@ def add_header(response):
     response.headers['Cache-Control'] = 'public, max-age=0'
     return response
 
+@app.route('/convert_to_text')
+def convert_to_text():
+    os.system('transcribe.py')
+    return 'Success'
+
 def getCurrentCount():
     count = 0
     with open("count.txt", "r+") as countFile:
@@ -51,11 +57,6 @@ def getCurrentCount():
         countFile.write(str(count+1))
         countFile.truncate()
     return count
-
-import os
-@app.route('/convert_to_text')
-def convert_to_text():
-    os.system('transcribe.py')
 
 if __name__ == '__main__':
     app.run(debug=True)

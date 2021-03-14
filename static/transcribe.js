@@ -1,9 +1,21 @@
 const backButton = document.getElementById("back-button");
+const transcribeButton = document.getElementById("transcribe");
 
-backButton.addEventListener('click', goToHomeScreen)
+backButton.addEventListener('click', goToHomeScreen);
+transcribeButton.addEventListener('click', transcribeAudio)
 
 function goToHomeScreen(event) {
   window.location.href = '/';
+}
+
+function transcribeAudio(event) {
+  fetch('/convert_to_text').then(function(response) {
+    return response.json();
+  }).then(function(data) {
+    console.log(data);
+  }).catch(function() {
+    console.log("Booo");
+  });
 }
 
 const recordAudio = () =>
