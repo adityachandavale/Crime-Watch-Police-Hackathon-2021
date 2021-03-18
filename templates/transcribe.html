@@ -13,19 +13,23 @@
 
     <div class="page-content">
       <div class = "button-group-transcribe">
-          <button id="record">Record</button>
-          <button id="stop" disabled>Stop</button>
-          <button id="play" disabled>Play</button>
-          <button id="save" disabled type="submit">Save</button>
-		      <button id="transcribe">Transcribe</button>
+        <div class="record-buttons">
+          <button id="record" class="primary"><span class="button-span">RECORD</span></button>
+          <button id="stop" disabled class="primary"><span class="button-span">STOP</span></button>
+          <button id="play" disabled class="primary"><span class="button-span">PLAY</span></button>
+        </div>
+        <br>
+        <div class="misc-buttons">
+          <button id="save" disabled class="secondary" type="submit"><span class="button-span">SAVE</span></button>
+		      <button id="transcribe" class="secondary"><span class="button-span">TRANSCRIBE</span></button>
+        </div>
+        <br>
+        <div class="translate-button">
+          <button id="play" class="primary"><span class="button-span">TRANSLATE</span></button>
+        </div>
       </div>
 
-      <div id="saved-audio-messages">
-        <h2>Saved messages</h2>
-      </div>
-
-      <script src="/static/transcribe.js">
-      </script>
+      <script src="/static/transcribe.js"></script>
     </div>
   </body>
 </html>
