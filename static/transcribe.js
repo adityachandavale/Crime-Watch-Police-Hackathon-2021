@@ -9,13 +9,16 @@ function goToHomeScreen(event) {
 }
 
 function transcribeAudio(event) {
-  fetch('/convert_to_text').then(function(response) {
-    return response.json();
-  }).then(function(data) {
-    console.log(data);
-  }).catch(function() {
-    console.log("Booo");
-  });
+  transcribeButton.setAttribute('disabled', true);
+  fetch('/convert_to_text').then(function(data) {
+    return data.blob().then((data)=>{
+        var a = document.createElement("a");
+        a.href = URL.createObjectURL(data);
+        a.setAttribute("download", "transcribed_pdf.pdf");
+        a.click();
+    }
+    );
+});
 }
 
 const recordAudio = () =>
@@ -84,20 +87,18 @@ playButton.addEventListener('click', () => {
 });
 
 saveButton.addEventListener('click', () => {
-  const audioBlob = new Blob(audio.audioChunks, { 'type' : 'audio/webm'});
-  const reader = new FileReader();
-  reader.readAsDataURL(audioBlob);
-  reader.onload = () => {
-    const base64AudioMessage = reader.result.split(',')[1];
-    console.log(reader.result)
-    fetch("/saveMessage", {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ message: base64AudioMessage })
-    }).then(res => 
-      {
-        console.log(res)
-      }
-    );
-  }
+  const audioBlob = new Blob(audio.audioChunks, { 'type' : 'audio/wav'});
+  let url = window.URL.createObjectURL(audioBlob);
+  saveFile('recorded_audio',url);
 });
+
+function saveFile(fileName,urlFile){
+  let a = document.createElement("a");
+  a.style = "display: none";
+  document.body.appendChild(a);
+  a.href = urlFile;
+  a.download = fileName;
+  a.click();
+  window.URL.revokeObjectURL(url);
+  a.remove();
+}

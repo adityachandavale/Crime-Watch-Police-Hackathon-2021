@@ -9,16 +9,17 @@
 
 .button-group-transcribe {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
 button {
-    min-width: 100px;
-    height: 40px;
+    min-width: 10em;
+    height: 5em;
     cursor: pointer;
+    border-radius: 20px;
     border: 2px solid var(--primary-color);
-    font-size: 15px;
     outline: none;
 }
 
@@ -27,4 +28,11 @@ button {
     margin-left: 0.5em;
     font-size: 2.5em;
     cursor: pointer;
+}
+
+.button-span {
+    font-size: 20px;
+    padding: 0 0;
+    font-family: Oswald, sans-serif;
+    letter-spacing: 1px;
 }

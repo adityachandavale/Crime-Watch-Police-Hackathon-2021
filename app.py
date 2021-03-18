@@ -1,6 +1,10 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, send_file
 import base64
 import os
+import sys
+from docx2pdf import convert
+
+wdFormatPDF = 17
 
 ENCODING_FORMAT = 'utf-8'
 
@@ -47,7 +51,11 @@ def add_header(response):
 @app.route('/convert_to_text')
 def convert_to_text():
     os.system('python transcribe.py')
-    return 'Success'
+    convert('text_files/transcribed_text.docx', 'text_files/transcribed_pdf.pdf')
+    try:
+	    return send_file('text_files/transcribed_pdf.pdf', attachment_filename='transcribed_pdf.pdf')
+    except Exception as e:
+        return str(e)
 
 def getCurrentCount():
     count = 0
