@@ -36,3 +36,8 @@ button {
     font-family: Oswald, sans-serif;
     letter-spacing: 1px;
 }
+
+.misc-buttons {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
