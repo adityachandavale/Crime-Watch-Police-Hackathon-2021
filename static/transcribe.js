@@ -18,6 +18,7 @@ function transcribeAudio(event) {
         a.href = URL.createObjectURL(data);
         a.setAttribute("download", "transcribed_pdf.pdf");
         a.click();
+        transcribeButton.removeAttribute('disabled');
     }
     );
 });
@@ -31,6 +32,7 @@ function translate(event) {
         a.href = URL.createObjectURL(data);
         a.setAttribute("download", "translated_pdf.pdf");
         a.click();
+        translateButton.removeAttribute('disabled');
     }
     );
 });
