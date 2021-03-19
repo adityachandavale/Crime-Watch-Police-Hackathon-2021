@@ -21,3 +21,10 @@ Python libraries used:<br>
 12) translate
 13) io
 14) pdfminer
+<br><br>
+
+Project Contributers:<br><br>
+<b>Shivani Dangi<br><br>
+Rasika Kshirsagar<br><br>
+Gunjan Gupta<br><br>
+Aditya Chandavale</b><br>
