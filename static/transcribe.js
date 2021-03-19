@@ -1,10 +1,10 @@
 const backButton = document.getElementById("back-button");
 const transcribeButton = document.getElementById("transcribe");
+const translateButton = document.getElementById("translate");
 
 backButton.addEventListener('click', goToHomeScreen);
-transcribeButton.addEventListener('click', transcribeAudio)
-translateButton.addEventListener('click', translate)
-
+transcribeButton.addEventListener('click', transcribeAudio);
+translateButton.addEventListener('click', translate);
 
 function goToHomeScreen(event) {
   window.location.href = '/';
