@@ -57,6 +57,15 @@ def convert_to_text():
     except Exception as e:
         return str(e)
 
+@app.route('/translate_text')
+def translate_text():
+    os.system('python translate_file.py')
+    convert('text_files/translated_text.docx', 'text_files/translated_pdf.pdf')
+    try:
+	    return send_file('text_files/translated_pdf.pdf', attachment_filename='translated_pdf.pdf')
+    except Exception as e:
+        return str(e)
+
 def getCurrentCount():
     count = 0
     with open("count.txt", "r+") as countFile:

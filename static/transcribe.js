@@ -3,6 +3,8 @@ const transcribeButton = document.getElementById("transcribe");
 
 backButton.addEventListener('click', goToHomeScreen);
 transcribeButton.addEventListener('click', transcribeAudio)
+translateButton.addEventListener('click', translate)
+
 
 function goToHomeScreen(event) {
   window.location.href = '/';
@@ -15,6 +17,19 @@ function transcribeAudio(event) {
         var a = document.createElement("a");
         a.href = URL.createObjectURL(data);
         a.setAttribute("download", "transcribed_pdf.pdf");
+        a.click();
+    }
+    );
+});
+}
+
+function translate(event) {
+  translateButton.setAttribute('disabled', true);
+  fetch('/translate_text').then(function(data) {
+    return data.blob().then((data)=>{
+        var a = document.createElement("a");
+        a.href = URL.createObjectURL(data);
+        a.setAttribute("download", "translated_pdf.pdf");
         a.click();
     }
     );
